@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="12px" viewBox="0 0 18 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>arrow-pointing-to-right</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="La-Fondation-Desjardins---hub" transform="translate(-275.000000, -996.000000)" fill="#007944" fill-rule="nonzero">
+            <g id="Bourse-d'études" transform="translate(130.000000, 587.000000)">
+                <g id="arrow-pointing-to-right" transform="translate(145.000000, 409.000000)">
+                    <path d="M17.7548399,5.42665058 L12.3983447,0.237454375 C12.0715315,-0.0791514583 11.5415063,-0.0791514583 11.2146932,0.237454375 C10.887813,0.554125073 10.887813,1.06746631 11.2146932,1.38413701 L15.1424102,5.18917999 L0.836952377,5.18917999 C0.374753797,5.18917999 0,5.55222912 0,6 C0,6.44768979 0.374753797,6.8108038 0.836952377,6.8108038 L15.1424102,6.8108038 L11.2148271,10.6158468 C10.887947,10.9325175 10.887947,11.4458587 11.2148271,11.7625294 C11.3782002,11.920735 11.59246,12 11.8066528,12 C12.0208457,12 12.2350385,11.920735 12.3984786,11.7625294 L17.7548399,6.57333321 C18.08172,6.25666251 18.08172,5.74332127 17.7548399,5.42665058 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

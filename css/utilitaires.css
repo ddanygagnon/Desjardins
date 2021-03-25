@@ -1,0 +1,270 @@
+﻿/* utilitaires CSS : fichier personnel de règles ou classes utilitaires */
+/* N.B. Si normalize.css est utilisé, il doit être inclus avant.        */
+
+/**********************************************************************************************/
+/* D'ABORD QUELQUES AJUSTEMENTS DE BASE                                                       */
+/**********************************************************************************************/
+
+/* Mettre mode box-sizing à border-box par défaut sur tout, sauf dans ce qui hériterait */
+/* d'un élément explicitement mis à autre chose. Voir :                                 */
+/* http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/  */
+html {
+    box-sizing: border-box;
+}
+
+*, *:after, *:before { /* :after et :before ne sont pas inclus dans « * » */
+    box-sizing: inherit;
+}
+
+/* Correction pour certaines versions de IE, au cas où normalize.css n'est pas inclus   */
+main {
+    display:block;
+}
+
+/* Normalisation de la taille de la police à chasse fixe (monospace) utilisée pour les  */
+/* balises semblables à <code>, selon la technique proposée (entre autres) par          */
+/* http://code.stephenmorley.org/html-and-css/fixing-browsers-broken-monospace-font-handling/ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace; /* Voir référence ! */
+  font-size: 1em;
+}
+
+/* C'était peut-être déjà fait par normalize.css, s'il est inclus, mais on veut aussi   */
+/* normaliser la police elle-même, d'où                                                 */
+code,
+kbd,
+pre,
+samp {
+  font-family: "Courier New", Courier, "Lucida Console", Consolas, monospace;
+}
+
+/* Les bordures des tables sont invisibles par défaut. Ce n'est pas pratique pour les   */
+/* tests rapides ou les essais initiaux. On met une petite bordure. Ce serait agaçant   */
+/* si on se servait des tables pour faire du placement d'éléments, mais ce n'est pas ce */
+/* qu'on devrait faire, ni ce qu'on fera...                                             */
+table, th, td {
+    border: 1px solid gray;
+}
+
+
+/* <blocquote> serait intéressant s'il fonctionnait partout correctement (il ajouterait */
+/* les bons guillemets aux citations). Mais pour le moment, certains fureteurs ne les   */
+/* ajoutent pas, ou le font incorrectement. On ne peut donc pas faire du HTML sûr !     */
+/* On enlève tout, partout... Pareil pour <q>...                                        */
+/* Tiré de reset.css  (http://meyerweb.com/eric/tools/css/reset/)                       */
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/**********************************************************************************************/
+/* CLASSES UTILITAIRES                                                                        */
+/**********************************************************************************************/
+
+/* clearfix (groupe) */
+/*********************/
+/* clearfix est le nom classique du truc qui dégage la suite d'un groupe des blocs   */
+/* qui pourraient flotter encore. On le rend aussi disponible par la classe groupe   */
+/* en particulier, pour les systèmes de colonnes simples qui suivent.                */
+.clearfix:after, .groupe:after {
+  content: "";
+  display: block;
+  /* était display:table; voir http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+  clear: both;
+   
+  /* MM : si on met une bordure au groupe, la suite embarque par-dessus dans Chrome. */
+  /* Ceci corrige le « bogue » mais laisse un pixel vide dans les autres fureteurs   */
+  /* testés. À investiguer donc...                                                   */ 
+  /* 2016 : Je n'arrive pas à reproduire le bogue, donc désactivation :              */
+  /*margin-top: 1px; */
+}
+
+/* Systèmes de colonnes simples */
+/********************************/
+/* Si on veut des bordures, il faut probablement mettre un div à l'intérieur de la   */
+/* colonne et appliquer la bordure à celle-ci, car il y a du padding pour dégager    */
+/* les colonnes qui deviendra une sorte de marge pour la div interne                 */
+
+/* Système trois colonnes : il faut d'abord appliquer la classe groupe à un élément  */
+/* conteneur (div ou autre élément bloc), puis mettre colonne-1 colonne-2 colonne-3  */
+/* aux éléments colonnes et leur ajouter une largeur (col-xxp). Par exemple :        */
+/*
+     <div class="groupe">
+         <div class="colonne-1 col-30p>
+              ...
+         </div>
+         <div class="colonne-2 col-30p>
+              ...
+         </div>
+         <div class="colonne-3 col-40p>
+              ...
+         </div>
+     </div>
+*/
+.colonne-1 { 
+    float: left;
+    padding-right: 0.66rem;
+}
+
+.colonne-2 { 
+    display: inline-block;
+    padding-left: 0.33rem;
+    padding-right: 0.33rem;
+}
+
+.colonne-3 { 
+    float: right;
+    padding-left: 0.66rem;
+
+}
+
+/* Système deux colonnes : il faut d'abord appliquer la classe groupe à un élément   */
+/* conteneur (div ou autre élément bloc), puis mettre colonne-gauche colonne-droite  */
+/* aux éléments colonnes et leur ajouter une largeur (col-xxp). Par exemple :        */
+/*
+     <div class="groupe">
+         <div class="colonne-gauche col-30p>
+              ...
+         </div>
+         <div class="colonne-droite col-70p>
+              ...
+         </div>
+     </div>
+*/
+.colonne-gauche {
+    float: left;
+    padding-right: 0.5rem;
+}
+
+.colonne-droite {
+    display: inline-block;
+    padding-left: 0.5rem;
+}
+
+/* Largeurs à combiner (p == pourcentage). On peut en créer d'autres au besoin.      */
+.col-10p {
+    width: 10%;
+}
+
+.col-15p {
+    width: 15%;
+}
+
+.col-20p {
+    width: 20%;
+}
+
+.col-25p {
+    width: 25%;
+}
+
+.col-30p {
+    width: 30%;
+}
+
+.col-33p {
+    width: 33.33%;
+}
+
+.col-35p {
+    width: 35%;
+}
+
+.col-40p {
+    width: 40%;
+}
+
+.col-50p {
+    width: 50%;
+}
+
+.col-60p {
+    width: 60%;
+}
+
+.col-66p {
+    width: 66.66%;
+}
+
+.col-70p {
+    width: 70%;
+}
+
+.col-75p {
+    width: 75%;
+}
+
+.col-80p {
+    width: 80%;
+}
+
+.col-85p {
+    width: 85%;
+}
+
+.col-90p {
+    width: 90%;
+}
+
+/* Centrage classique */
+/**********************/
+/* Texte et autres éléments « en ligne » (inline), par ex. img */
+.centrage-texte { 
+    text-align: center;
+}
+
+/* Pour bloc dans un bloc (il faut des width sur les éléments) */
+.centrage-bloc {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ .bloc-en-ligne {  
+     display: inline-block;
+ }
+
+/**********************************************************************************************/
+
+/* Lorem ipsum  */
+/****************/
+
+/*  Pour ajouter du texte bidon dans un paragraphe vide ou autre 
+
+    EXEMPLE: <p class="lorem32"></p>
+
+*****************************************************************/
+
+/* 8 mots */
+.lorem8::after {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+}
+
+/* 16 mots */
+.lorem16::after {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tempus tortor, et sollicitudin nulla phasellus.";
+}
+
+/* 32 mots */
+.lorem32::after {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tempus tortor, et sollicitudin nulla. Phasellus luctus justo eros, id pretium tortor fermentum ultricies. Sed at velit vitae felis posuere dictum donec.";
+}
+
+/* 64 mots */
+.lorem64::after {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tempus tortor, et sollicitudin nulla. Phasellus luctus justo eros, id pretium tortor fermentum ultricies. Sed at velit vitae felis posuere dictum. Donec bibendum est nulla, non vulputate sapien semper non. Nulla finibus eleifend varius. Maecenas vitae sem mi. Donec at tortor ac nisl sagittis varius. Nunc ornare porta nisl quis dapibus. Sed est est, aliquam vitae congue a, condimentum ac urna. Vestibulum dignissim nibh in interdum efficitur. Etiam elementum sapien ac leo varius.";    
+}
+
+/* 128 mots */
+.lorem128::after {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tempus tortor, et sollicitudin nulla. Phasellus luctus justo eros, id pretium tortor fermentum ultricies. Sed at velit vitae felis posuere dictum. Donec bibendum est nulla, non vulputate sapien semper non. Nulla finibus eleifend varius. Maecenas vitae sem mi. Donec at tortor ac nisl sagittis varius. Nunc ornare porta nisl quis dapibus. Sed est est, aliquam vitae congue a, condimentum ac urna. Vestibulum dignissim nibh in interdum efficitur. Etiam elementum sapien ac leo varius, eu vestibulum arcu semper. Sed at mattis nibh, id pellentesque ex. Nam convallis sem non urna molestie, a scelerisque ante pellentesque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel tempus tortor, et sollicitudin nulla. Phasellus luctus justo eros, id pretium tortor fermentum ultricies. Sed at velit vitae.";
+}
+
+/**********************************************************************************************/
